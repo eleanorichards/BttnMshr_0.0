@@ -111,6 +111,9 @@ public class attackManager : MonoBehaviour {
             case 10:
                 attack_value = 160;
                 break;
+            default:
+                attack_value = 0;
+                break;
         }
         return attack_value;
     }

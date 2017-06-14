@@ -27,9 +27,10 @@ public class playerMovement : MonoBehaviour {
         if (isGrounded() && Input.GetButton("Jump"))
         {
             Debug.Log("JUMPED");
+            rbody.transform.Rotate(0, 100 * Time.deltaTime, 0);
             jump_axis = jump_speed;            
         }
-        else if(!isGrounded() && gravity >0)
+        else if(!isGrounded() && gravity >0 /*&& jump_axis >= 0*/)
         {
             jump_axis -= gravity;
         }     
@@ -42,6 +43,7 @@ public class playerMovement : MonoBehaviour {
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), jump_axis, Input.GetAxis("Vertical"));
 
         impulse_force = Vector3.ClampMagnitude((speed * moveDirection * rbody.mass), max_force);
+
         rbody.AddForce(speed * moveDirection * rbody.mass);
               
 	}

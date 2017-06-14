@@ -6,6 +6,7 @@ public class PlayerData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
         for (int i = 0; i < 4; i++)
         {
             player_name[i] = Input.GetJoystickNames()[i];

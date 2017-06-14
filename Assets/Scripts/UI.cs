@@ -7,16 +7,25 @@ public class UI : MonoBehaviour {
     private Text score_text = null;
 
     private attackManager p_attack_manager;
-	// Use this for initialization
-	void Start () {
-        score_text = gameObject.GetComponentInChildren<Text>();
+
+    void Start () {
+        score_text = GameObject.Find("HUD/Player1_Score").GetComponent<Text>();
         p_attack_manager = gameObject.GetComponent<attackManager>();
+        //checking score text exists
+        if(score_text)
+        {
+            score_text.text = "HI";
+        }
+        else
+        {
+            Debug.Log("text box not found");
+        }
 
     }
 
     // Update is called once per frame
     void Update () {
-        //Debug.Log(p_attack_manager.attack_value.ToString());
+        //Update score text each frame with player score
         score_text.text = p_attack_manager.GetAttackValue().ToString();
 	}
 }

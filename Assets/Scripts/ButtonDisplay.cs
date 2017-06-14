@@ -89,7 +89,7 @@ public class ButtonDisplay : MonoBehaviour {
             cur_time--;
             calc_time = cur_time / max_time;
         }
-        else
+        else if (cur_time <= 0)
         {
             SetButtonSprite();
             p_attackManager.resetCombo();

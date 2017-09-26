@@ -26,6 +26,9 @@ public class UI : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //Update score text each frame with player score
-        score_text.text = p_attack_manager.GetAttackValue().ToString();
+        if (score_text && p_attack_manager)
+        {
+            score_text.text = p_attack_manager.GetAttackValue().ToString();
+        }
 	}
 }

@@ -2,16 +2,16 @@
 using System.Collections;
 
 public class PlayerData : MonoBehaviour {
-    string[] player_name;
 
 	// Use this for initialization
 	void Start () {
+        string[] player_name = Input.GetJoystickNames();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < player_name.Length; i++)
         {
-            player_name[i] = Input.GetJoystickNames()[i];
             Debug.Log(player_name[i]);
-        }
+            player_name[i] = Input.GetJoystickNames()[i];
+        }  
 
 	}
 	

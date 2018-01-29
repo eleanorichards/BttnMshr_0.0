@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UI : MonoBehaviour {
+
+    private GameObject[] Players = new GameObject[6];
 
     private Text score_text = null;
 
     private attackManager p_attack_manager;
 
     void Start () {
+        Players = GameObject.FindGameObjectsWithTag("Player");
         score_text = GameObject.Find("HUD/Player1_Score").GetComponent<Text>();
         p_attack_manager = gameObject.GetComponent<attackManager>();
         //checking score text exists
